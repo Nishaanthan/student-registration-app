@@ -1,0 +1,131 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: SRAdiscoveryservice
+spec:
+  selector:
+    app: SRAdiscoveryservice
+  ports:
+    - port: 80
+      targetPort: 8761
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SRAdiscoveryservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: SRAdiscoveryservice
+  template:
+    metadata:
+      labels:
+        app: SRAdiscoveryservice
+    spec:
+      containers:
+        - name: app
+          image: nisanthan/sra-discoveryservice
+          ports:
+            - containerPort: 8761
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: SRAcourse
+spec:
+  selector:
+    app: SRAcourse
+  ports:
+    - port: 80
+      targetPort: 8001
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SRAcourse
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: SRAcourse
+  template:
+    metadata:
+      labels:
+        app: SRAcourse
+    spec:
+      containers:
+        - name: app
+          image: nisanthan/sra-course
+          ports:
+            - containerPort: 8001
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: SRAstudent
+spec:
+  selector:
+    app: SRAstudent
+  ports:
+    - port: 80
+      targetPort: 8002
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SRAstudent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: SRAstudent
+  template:
+    metadata:
+      labels:
+        app: SRAstudent
+    spec:
+      containers:
+        - name: app
+          image: nisanthan/sra-student
+          ports:
+            - containerPort: 8002
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: SRAcoursecatelog
+spec:
+  selector:
+    app: SRAcoursecatelog
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SRAcoursecatelog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: SRAcoursecatelog
+  template:
+    metadata:
+      labels:
+        app: SRAcoursecatelog
+    spec:
+      containers:
+        - name: app
+          image: nisanthan/sra-coursecatelog
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
