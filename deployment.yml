@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: SRAdiscoveryservice
+  name: sra-discoveryservice
 spec:
   selector:
-    app: SRAdiscoveryservice
+    app: sra-discoveryservice
   ports:
     - port: 80
       targetPort: 8761
@@ -13,16 +13,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SRAdiscoveryservice
+  name: sra-discoveryservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: SRAdiscoveryservice
+      app: sra-discoveryservice
   template:
     metadata:
       labels:
-        app: SRAdiscoveryservice
+        app: sra-discoveryservice
     spec:
       containers:
         - name: app
@@ -34,10 +34,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: SRAcourse
+  name: sra-course
 spec:
   selector:
-    app: SRAcourse
+    app: sra-course
   ports:
     - port: 80
       targetPort: 8001
@@ -46,16 +46,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SRAcourse
+  name: sra-course
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: SRAcourse
+      app: sra-course
   template:
     metadata:
       labels:
-        app: SRAcourse
+        app: sra-course
     spec:
       containers:
         - name: app
@@ -67,10 +67,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: SRAstudent
+  name: sra-student
 spec:
   selector:
-    app: SRAstudent
+    app: sra-student
   ports:
     - port: 80
       targetPort: 8002
@@ -79,16 +79,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SRAstudent
+  name: sra-student
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: SRAstudent
+      app: sra-student
   template:
     metadata:
       labels:
-        app: SRAstudent
+        app: sra-student
     spec:
       containers:
         - name: app
@@ -100,10 +100,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: SRAcoursecatelog
+  name: sra-coursecatelog
 spec:
   selector:
-    app: SRAcoursecatelog
+    app: sra-coursecatelog
   ports:
     - port: 80
       targetPort: 8000
@@ -112,16 +112,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SRAcoursecatelog
+  name: sra-coursecatelog
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: SRAcoursecatelog
+      app: sra-coursecatelog
   template:
     metadata:
       labels:
-        app: SRAcoursecatelog
+        app: sra-coursecatelog
     spec:
       containers:
         - name: app
